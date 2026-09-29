@@ -1,0 +1,245 @@
+/*
+ * Liquid glass.
+ *
+ * The material is built from four layers, not a colour:
+ *   1. a translucent fill that blurs and slightly saturates what is behind it
+ *   2. a bright inset top edge + dark inset bottom edge — the refracted rim
+ *   3. a soft outer lift so the control floats a hair above the paper
+ *   4. a specular highlight that tracks the pointer (--mx / --my)
+ *
+ * Every gradient here is achromatic — white or ink alpha only. No hue shifts.
+ */
+
+.glass {
+  --mx: 50%;
+  --my: 0%;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 17px;
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--r-pill);
+  background-color: var(--glass-fill);
+  -webkit-backdrop-filter: blur(16px) saturate(1.7);
+  backdrop-filter: blur(16px) saturate(1.7);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 var(--glass-top),
+    inset 0 -1px 0 var(--glass-bottom),
+    var(--glass-lift);
+  transform: translate3d(0, 0, 0);
+  transition:
+    background-color var(--t-mid) var(--ease-soft),
+    box-shadow var(--t-mid) var(--ease-soft),
+    transform var(--t-mid) var(--ease-out),
+    border-color var(--t-mid) var(--ease-soft),
+    color var(--t-mid) var(--ease-soft);
+}
+
+/* The travelling specular highlight. */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    120px 80px at var(--mx) var(--my),
+    var(--glass-sheen),
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity var(--t-mid) var(--ease-soft);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* A second, tighter rim that reads as the thickness of the glass. */
+.glass::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glass:hover {
+  background-color: var(--glass-fill-hi);
+  box-shadow:
+    inset 0 1px 0 var(--glass-top),
+    inset 0 -1px 0 var(--glass-bottom),
+    var(--glass-lift-hi);
+  transform: translate3d(0, -1px, 0);
+}
+
+.glass:hover::before {
+  opacity: 1;
+}
+
+.glass:active {
+  transform: translate3d(0, 0, 0) scale(0.985);
+  box-shadow:
+    inset 0 1px 2px var(--glass-bottom),
+    inset 0 1px 0 var(--glass-top),
+    0 1px 2px rgba(23, 23, 20, 0.06);
+  transition-duration: 90ms;
+}
+
+.glass:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- variants ------------------------------------------------------- */
+
+/* Primary: ink glass. Same material, inverted ground. */
+.glass--ink {
+  background-color: var(--solid-fill);
+  border-color: transparent;
+  color: var(--surface);
+  --glass-sheen: var(--solid-sheen);
+  box-shadow:
+    inset 0 1px 0 var(--solid-top),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    var(--glass-lift);
+}
+
+.glass--ink:hover {
+  background-color: var(--solid-fill);
+  box-shadow:
+    inset 0 1px 0 var(--solid-top),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    var(--glass-lift-hi);
+}
+
+.glass--ink::after {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Quiet: no fill until hover — for dense toolbars. */
+.glass--quiet {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--ink-2);
+}
+
+.glass--quiet:hover {
+  background-color: var(--glass-fill);
+  border-color: var(--glass-edge);
+  color: var(--ink);
+  box-shadow:
+    inset 0 1px 0 var(--glass-top),
+    var(--glass-lift);
+}
+
+.glass--quiet::after {
+  display: none;
+}
+
+.glass--sm {
+  height: 31px;
+  padding: 0 13px;
+  font-size: 12.25px;
+}
+
+.glass--lg {
+  height: 46px;
+  padding: 0 24px;
+  font-size: 14.5px;
+}
+
+.glass--icon {
+  width: 38px;
+  padding: 0;
+}
+
+.glass--icon.glass--sm {
+  width: 31px;
+}
+
+.glass--block {
+  display: flex;
+  width: 100%;
+}
+
+/* --- glass as a surface (toolbars, nav, sticky bars) ----------------- */
+
+.glass-panel {
+  position: relative;
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--r-lg);
+  background-color: var(--glass-fill);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  box-shadow:
+    inset 0 1px 0 var(--glass-top),
+    var(--glass-lift);
+}
+
+/* --- segmented control (glass track, sliding glass thumb) ------------ */
+
+.seg {
+  position: relative;
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--r-pill);
+  background-color: var(--glass-fill);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  backdrop-filter: blur(16px) saturate(1.6);
+  box-shadow: inset 0 1px 0 var(--glass-top), inset 0 -1px 0 var(--glass-bottom);
+}
+
+.seg__thumb {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 1px 2px rgba(23, 23, 20, 0.08),
+    0 6px 14px -8px rgba(23, 23, 20, 0.24);
+  transition:
+    transform var(--t-mid) var(--ease-spring),
+    width var(--t-mid) var(--ease-spring);
+  pointer-events: none;
+}
+
+.seg__btn {
+  position: relative;
+  z-index: 1;
+  height: 28px;
+  padding: 0 14px;
+  border: 0;
+  background: transparent;
+  border-radius: var(--r-pill);
+  font-size: 12.25px;
+  font-weight: 500;
+  color: var(--ink-3);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--t-mid) var(--ease-soft);
+}
+
+.seg__btn[data-on="true"] {
+  color: var(--ink);
+}
+
+.seg__btn:hover {
+  color: var(--ink);
+}

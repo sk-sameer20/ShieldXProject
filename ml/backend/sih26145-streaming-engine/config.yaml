@@ -1,0 +1,22 @@
+# Streaming Engine Configuration
+
+windows:
+  ddos_seconds: 5
+  c2_seconds: 60
+  dns_seconds: 60
+  cleanup_ttl_seconds: 300
+
+queue:
+  max_size: 10000
+  overflow_strategy: "drop"
+
+fusion:
+  model_weight: 0.5
+  anomaly_weight: 0.3
+  baseline_weight: 0.2
+
+deduplication:
+  suppression_window_seconds: 30
+
+storage:
+  db_path: "outputs/sih26145.db"

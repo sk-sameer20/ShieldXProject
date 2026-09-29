@@ -1,0 +1,199 @@
+/*
+ * ShieldX design tokens — "Ledger".
+ * Warm paper and ink. Light is the primary experience, dark is a selected
+ * counterpart (its own steps, not an inverted flip).
+ *
+ * Colour rules held here on purpose:
+ *   - No hue-shifting gradients anywhere. Gradients exist only as achromatic
+ *     white/ink alpha, and only to model glass and light.
+ *   - Chart hues are the validated categorical slots; severity wears the
+ *     reserved status scale and never a series hue.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* --- surfaces ---------------------------------------------------- */
+  --plane: #f5f4f1;
+  --plane-deep: #eceae4;
+  --surface: #ffffff;
+  --surface-sunk: #faf9f6;
+
+  /* --- ink ---------------------------------------------------------- */
+  --ink: #171714;
+  --ink-2: #57564f;
+  --ink-3: #8a887f;
+  --ink-4: #a8a69c;
+
+  /* --- structure ---------------------------------------------------- */
+  --line: #e3e1da;
+  --line-strong: #d2cfc5;
+  --baseline: #c9c7bd;
+
+  /* --- interactive accent (same hue family as chart slot 1) --------- */
+  --accent: #1c5cab;
+  --accent-ink: #184f95;
+  --accent-wash: rgba(28, 92, 171, 0.08);
+  --accent-line: rgba(28, 92, 171, 0.22);
+
+  /* --- chart: categorical slots (validated light) ------------------- */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-wash: rgba(42, 120, 214, 0.1);
+
+  /* --- chart chrome ------------------------------------------------- */
+  --grid: #e9e7e0;
+  --axis: #c9c7bd;
+
+  /* --- status (reserved, never themed) ------------------------------ */
+  --ok: #0ca30c;
+  --warn: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --ok-text: #006300;
+
+  /* --- glass ------------------------------------------------------- */
+  --glass-fill: rgba(255, 255, 255, 0.58);
+  --glass-fill-hi: rgba(255, 255, 255, 0.76);
+  --glass-edge: rgba(23, 23, 20, 0.09);
+  --glass-top: rgba(255, 255, 255, 0.92);
+  --glass-bottom: rgba(23, 23, 20, 0.05);
+  --glass-sheen: rgba(255, 255, 255, 0.85);
+  --glass-lift: 0 1px 2px rgba(23, 23, 20, 0.05), 0 10px 24px -14px rgba(23, 23, 20, 0.22);
+  --glass-lift-hi: 0 1px 2px rgba(23, 23, 20, 0.06), 0 18px 38px -18px rgba(23, 23, 20, 0.28);
+
+  --solid-fill: rgba(23, 23, 20, 0.94);
+  --solid-top: rgba(255, 255, 255, 0.2);
+  --solid-sheen: rgba(255, 255, 255, 0.22);
+
+  /* --- elevation --------------------------------------------------- */
+  --card-shadow: 0 1px 2px rgba(23, 23, 20, 0.04), 0 10px 30px -22px rgba(23, 23, 20, 0.2);
+  --pop-shadow: 0 1px 2px rgba(23, 23, 20, 0.06), 0 24px 50px -24px rgba(23, 23, 20, 0.3);
+
+  /* --- type -------------------------------------------------------- */
+  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* --- shape ------------------------------------------------------- */
+  --r-sm: 8px;
+  --r-md: 11px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+  --r-pill: 999px;
+
+  /* --- motion ------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.32, 0.64, 1);
+  --t-fast: 140ms;
+  --t-mid: 240ms;
+  --t-slow: 420ms;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --plane: #100f0d;
+  --plane-deep: #0a0a08;
+  --surface: #151412;
+  --surface-sunk: #1b1a17;
+
+  --ink: #f6f5f1;
+  --ink-2: #b9b7ad;
+  --ink-3: #8a887f;
+  --ink-4: #6d6b63;
+
+  --line: #2a2924;
+  --line-strong: #3a3832;
+  --baseline: #3a3832;
+
+  --accent: #6da7ec;
+  --accent-ink: #86b6ef;
+  --accent-wash: rgba(109, 167, 236, 0.14);
+  --accent-line: rgba(109, 167, 236, 0.3);
+
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-wash: rgba(57, 135, 229, 0.16);
+
+  --grid: #232219;
+  --axis: #3a3832;
+
+  --ok: #0ca30c;
+  --warn: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --ok-text: #0ca30c;
+
+  --glass-fill: rgba(246, 245, 241, 0.06);
+  --glass-fill-hi: rgba(246, 245, 241, 0.1);
+  --glass-edge: rgba(246, 245, 241, 0.12);
+  --glass-top: rgba(255, 255, 255, 0.14);
+  --glass-bottom: rgba(0, 0, 0, 0.3);
+  --glass-sheen: rgba(255, 255, 255, 0.16);
+  --glass-lift: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 28px -16px rgba(0, 0, 0, 0.7);
+  --glass-lift-hi: 0 1px 2px rgba(0, 0, 0, 0.5), 0 20px 42px -18px rgba(0, 0, 0, 0.8);
+
+  --solid-fill: rgba(246, 245, 241, 0.93);
+  --solid-top: rgba(255, 255, 255, 0.5);
+  --solid-sheen: rgba(23, 23, 20, 0.12);
+
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 12px 32px -24px rgba(0, 0, 0, 0.8);
+  --pop-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 26px 54px -26px rgba(0, 0, 0, 0.9);
+}
+
+/* The toggle is authoritative; the OS preference only applies when unset. */
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme])) {
+    color-scheme: dark;
+
+    --plane: #100f0d;
+    --plane-deep: #0a0a08;
+    --surface: #151412;
+    --surface-sunk: #1b1a17;
+
+    --ink: #f6f5f1;
+    --ink-2: #b9b7ad;
+    --ink-3: #8a887f;
+    --ink-4: #6d6b63;
+
+    --line: #2a2924;
+    --line-strong: #3a3832;
+    --baseline: #3a3832;
+
+    --accent: #6da7ec;
+    --accent-ink: #86b6ef;
+    --accent-wash: rgba(109, 167, 236, 0.14);
+    --accent-line: rgba(109, 167, 236, 0.3);
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-wash: rgba(57, 135, 229, 0.16);
+
+    --grid: #232219;
+    --axis: #3a3832;
+    --ok-text: #0ca30c;
+
+    --glass-fill: rgba(246, 245, 241, 0.06);
+    --glass-fill-hi: rgba(246, 245, 241, 0.1);
+    --glass-edge: rgba(246, 245, 241, 0.12);
+    --glass-top: rgba(255, 255, 255, 0.14);
+    --glass-bottom: rgba(0, 0, 0, 0.3);
+    --glass-sheen: rgba(255, 255, 255, 0.16);
+    --glass-lift: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 28px -16px rgba(0, 0, 0, 0.7);
+    --glass-lift-hi: 0 1px 2px rgba(0, 0, 0, 0.5), 0 20px 42px -18px rgba(0, 0, 0, 0.8);
+
+    --solid-fill: rgba(246, 245, 241, 0.93);
+    --solid-top: rgba(255, 255, 255, 0.5);
+    --solid-sheen: rgba(23, 23, 20, 0.12);
+
+    --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 12px 32px -24px rgba(0, 0, 0, 0.8);
+    --pop-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 26px 54px -26px rgba(0, 0, 0, 0.9);
+  }
+}

@@ -1,0 +1,35 @@
+# SIH26145 — Person 3: C2 + DGA/DNS Detection Module Configuration
+# All values here are configurable defaults — do NOT hardcode them in source files.
+
+windows:
+  c2_seconds: 60        # sliding window size for C2 beaconing analysis
+  dns_seconds: 60       # sliding window size for DNS / DGA analysis
+
+network:
+  internal_subnets:
+    - "10.0.0.0/8"
+    - "192.168.0.0/16"
+    - "172.16.0.0/12"
+
+c2:
+  min_connections: 3          # minimum connections in window to attempt detection
+  contamination: 0.05         # IsolationForest contamination parameter (fraction of anomalies expected)
+  periodicity_lag_max: 20     # maximum autocorrelation lag to evaluate
+  repetition_ratio_threshold: 0.7   # dominant destination ratio above which repetition is flagged
+
+dga:
+  entropy_threshold: 3.5      # Shannon entropy above which domain is flagged
+  length_threshold: 12        # domain label length above which domain is flagged
+  digit_ratio_threshold: 0.3  # digit/(letter+digit) ratio above which domain is flagged
+  nxdomain_ratio_threshold: 0.4  # fraction of NXDOMAIN responses above which host is flagged
+
+dns_tunnel:
+  query_length_threshold: 50      # full query string length above which tunnelling is flagged
+  entropy_threshold: 3.8          # subdomain entropy above which tunnelling is flagged
+  query_freq_threshold: 10.0      # queries/sec above which host is flagged
+  unique_subdomain_threshold: 20  # unique subdomains per registered domain above which flagged
+
+models:
+  c2_version: "c2-v1"
+  dga_version: "dga-v1"
+  dns_version: "dns-v1"

@@ -1,0 +1,27 @@
+{
+  "model_name": "C2 Beaconing Detector",
+  "model_type": "IsolationForest + heuristic periodicity/repetition scorer",
+  "model_version": "c2-v1",
+  "feature_version": "1.0",
+  "features": [
+    "iat_mean",
+    "iat_std",
+    "iat_cv",
+    "iat_entropy",
+    "periodicity_score",
+    "connection_count",
+    "unique_destinations",
+    "dominant_destination_ratio",
+    "mean_duration",
+    "mean_orig_bytes",
+    "mean_resp_bytes",
+    "orig_bytes_std",
+    "byte_ratio",
+    "udp_ratio",
+    "mean_packets",
+    "tcp_success_ratio"
+  ],
+  "training_samples": 6472,
+  "training_data": "CTU-13 Benign Temporal Windows",
+  "confidence_note": "confidence is a weighted combination of: anomaly_score (0.35), periodicity_score (0.30), repetition_score (0.20), iat_regularity (0.15). It is NOT a calibrated probability."
+}

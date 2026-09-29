@@ -1,0 +1,24 @@
+{
+  "model_name": "DGA Domain Detector (OOD Baseline)",
+  "model_type": "Random Forest (supervised, lexical features)",
+  "model_version": "dga-v1",
+  "feature_version": "1.0",
+  "features": [
+    "domain_length",
+    "full_query_length",
+    "entropy",
+    "normalized_entropy",
+    "digit_ratio",
+    "letter_ratio",
+    "vowel_ratio",
+    "consonant_ratio",
+    "bigram_score",
+    "trigram_score"
+  ],
+  "training_samples": 40060,
+  "validation_samples": 8530,
+  "test_samples": 8628,
+  "training_data": "tranco + baderj",
+  "split_method": "Strict family-level OOD split",
+  "class_weight": "balanced"
+}

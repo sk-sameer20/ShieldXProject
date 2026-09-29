@@ -1,0 +1,8 @@
+{"timestamp": 1727000000.0, "src_ip": "10.0.0.5", "query": "google.com", "qtype": "A", "rcode": "NOERROR", "answers": ["142.250.80.46"], "query_length": 10}
+{"timestamp": 1727000005.2, "src_ip": "10.0.0.5", "query": "github.com", "qtype": "A", "rcode": "NOERROR", "answers": ["140.82.114.4"], "query_length": 10}
+{"timestamp": 1727000012.8, "src_ip": "10.0.0.7", "query": "stackoverflow.com", "qtype": "A", "rcode": "NOERROR", "answers": ["151.101.1.69"], "query_length": 17}
+{"timestamp": 1727000020.3, "src_ip": "10.0.0.7", "query": "wikipedia.org", "qtype": "A", "rcode": "NOERROR", "answers": ["208.80.154.224"], "query_length": 13}
+{"timestamp": 1727000028.0, "src_ip": "10.0.0.10", "query": "mail.google.com", "qtype": "A", "rcode": "NOERROR", "answers": ["142.250.67.5"], "query_length": 15}
+{"timestamp": 1727000035.5, "src_ip": "10.0.0.10", "query": "api.github.com", "qtype": "A", "rcode": "NOERROR", "answers": ["140.82.112.6"], "query_length": 14}
+{"timestamp": 1727000043.1, "src_ip": "10.0.0.5", "query": "cdn.example.com", "qtype": "A", "rcode": "NOERROR", "answers": ["93.184.216.34"], "query_length": 15}
+{"timestamp": 1727000051.7, "src_ip": "10.0.0.7", "query": "news.bbc.co.uk", "qtype": "A", "rcode": "NOERROR", "answers": ["212.58.244.70"], "query_length": 14}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!--
+    ShieldX mark. A solid shield with the cross knocked out, rather than the
+    thin-stroke version used in the UI: at 16px strokes disappear, so the mark
+    is carried by silhouette and a cut-out that survives downscaling.
+  -->
+  <path
+    fill="#1c5cab"
+    fill-rule="evenodd"
+    d="M16 2.2 27.4 6.4v8.9c0 6.9-4.6 12.6-11.4 14.5C9.2 27.9 4.6 22.2 4.6 15.3V6.4L16 2.2Zm1.65 7.2h-3.3v4.6H9.7v3.3h4.65v4.6h3.3v-4.6h4.65v-3.3h-4.65V9.4Z"
+  />
+</svg>

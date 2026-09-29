@@ -1,0 +1,689 @@
+/* ShieldX components — headers, tiles, tags, meters, charts. */
+
+/* --- section header -------------------------------------------------- */
+
+.sec-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.sec-head__text {
+  min-width: 0;
+}
+
+.sec-head__title {
+  font-size: 26px;
+  margin-top: 5px;
+  letter-spacing: -0.025em;
+}
+
+.sec-head__hint {
+  margin-top: 8px;
+  max-width: 62ch;
+  font-size: 14px;
+}
+
+.sec-head__aside {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel__hint {
+  margin-top: 4px;
+  max-width: 54ch;
+}
+
+/* --- stat tile ------------------------------------------------------- */
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 16px 17px 15px;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow var(--t-mid) var(--ease-soft), transform var(--t-mid) var(--ease-out);
+}
+
+.stat:hover {
+  transform: translate3d(0, -1px, 0);
+  box-shadow: var(--pop-shadow);
+}
+
+.stat__label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink-3);
+  letter-spacing: -0.005em;
+}
+
+/* Proportional figures — tabular is for columns, not display numbers. */
+.stat__value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 9px;
+  font-size: 29px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.stat__unit {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-3);
+  letter-spacing: -0.01em;
+}
+
+.stat__note {
+  margin-top: 9px;
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.45;
+}
+
+/* --- tags ------------------------------------------------------------ */
+
+.sev {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--sev);
+  white-space: nowrap;
+}
+
+.tt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-sunk);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.tt--sm {
+  padding: 1px 7px 1px 6px;
+  font-size: 10.5px;
+}
+
+.tt__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: none;
+}
+
+/* --- meter ----------------------------------------------------------- */
+
+.meter {
+  position: relative;
+  height: 6px;
+  border-radius: var(--r-pill);
+  background: var(--plane-deep);
+  overflow: hidden;
+}
+
+.meter__fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--r-pill);
+  transform-origin: left center;
+  animation: meter-in var(--t-slow) var(--ease-out) both;
+}
+
+@keyframes meter-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* --- evidence / key-value ------------------------------------------- */
+
+/* --- evidence table -------------------------------------------------- */
+
+.evt {
+  display: flex;
+  flex-direction: column;
+}
+
+.evt__head,
+.evt__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) 116px minmax(0, 1.5fr);
+  gap: 14px;
+  align-items: baseline;
+}
+
+.evt__head {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: 10.5px;
+  font-weight: 550;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.evt__row {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12.5px;
+}
+
+.evt__row:last-child {
+  border-bottom: 0;
+}
+
+.evt__k {
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+.evt__v {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.evt__num {
+  font-weight: 600;
+}
+
+.evt__th {
+  font-size: 10.5px;
+  color: var(--ink-3);
+}
+
+.evt__row--flag .evt__num {
+  color: var(--critical);
+}
+
+.evt__m {
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+/* --- verdict strip ---------------------------------------------------- */
+
+.verdict {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-sunk);
+}
+
+.verdict__cell {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.verdict__label {
+  font-size: 10.5px;
+  font-weight: 550;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* --- structured alert ------------------------------------------------- */
+
+.json__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-sunk);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  list-style: none;
+  transition: color var(--t-fast) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
+}
+
+.json__toggle::-webkit-details-marker {
+  display: none;
+}
+
+/* Rotates a quarter turn on open — a content swap between + and − could not
+   be transitioned, a transform can. */
+.json__toggle::before {
+  content: "+";
+  font-family: var(--mono);
+  color: var(--ink-3);
+  transition: transform var(--t-mid) var(--ease-spring), color var(--t-mid) var(--ease-soft);
+}
+
+.json[open] .json__toggle::before {
+  transform: rotate(45deg);
+  color: var(--ink-2);
+}
+
+/* Clips the panel while its height is animating. */
+.json__wrap {
+  overflow: hidden;
+  will-change: height;
+}
+
+.json__toggle:hover {
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+
+.json__body {
+  margin: 12px 0 0;
+  padding: 13px 14px;
+  max-height: 320px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-sunk);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  white-space: pre;
+  tab-size: 2;
+}
+
+.idval {
+  overflow-wrap: anywhere;
+}
+
+.kv {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.kv:last-child {
+  border-bottom: 0;
+}
+
+.kv__k {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.kv__v {
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+/* --- charts ---------------------------------------------------------- */
+
+.chart {
+  margin: 0;
+}
+
+/* Wraps the plot only, so tooltip percentages map to the viewBox and are not
+ * skewed by the caption below it. */
+.chart__plot {
+  position: relative;
+}
+
+.chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  touch-action: none;
+}
+
+.chart__tick {
+  font-family: var(--mono);
+  font-size: 10px;
+  fill: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.chart__peak {
+  font-size: 11.5px;
+  font-weight: 600;
+  fill: var(--ink);
+}
+
+.chart__thresh {
+  font-size: 10px;
+  fill: var(--critical);
+  opacity: 0.8;
+}
+
+.chart__line {
+  stroke-dasharray: 2400;
+  animation: draw 1100ms var(--ease-out) both;
+  --len: 2400;
+}
+
+/* Halo on the leading sample, so the live edge is obvious at a glance. */
+.chart__pulse {
+  opacity: 0.22;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-ring 1.9s var(--ease-soft) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.32;
+  }
+  70%,
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.chart__empty {
+  display: grid;
+  place-items: center;
+  font-size: 12.75px;
+  color: var(--ink-3);
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.chart__note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/* tooltip: value leads, series name follows */
+.tip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 14px));
+  min-width: 92px;
+  padding: 9px 11px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--pop-shadow);
+  pointer-events: none;
+  z-index: 3;
+  animation: fade 120ms var(--ease-soft) both;
+}
+
+.tip__v {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.tip__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+  font-size: 11.5px;
+  color: var(--ink-2);
+}
+
+.tip__key {
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+  flex: none;
+}
+
+.tip__t {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-3);
+}
+
+/* --- donut ----------------------------------------------------------- */
+
+.donut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.donut__ring {
+  position: relative;
+  flex: none;
+}
+
+.donut__ring svg {
+  display: block;
+  overflow: visible;
+}
+
+.donut__arc {
+  cursor: pointer;
+  transition:
+    stroke-width var(--t-mid) var(--ease-spring),
+    opacity var(--t-mid) var(--ease-soft);
+}
+
+.donut__ring:hover .donut__arc {
+  opacity: 0.45;
+}
+
+.donut__ring:hover .donut__arc:hover {
+  opacity: 1;
+}
+
+.donut__centre {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  pointer-events: none;
+  text-align: center;
+  padding: 0 28px;
+}
+
+/* Proportional figures — this is a display number, not a column. */
+.donut__num {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.donut__cap {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.donut__pct {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 550;
+  color: var(--ink-2);
+}
+
+.donut__legend {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.donut__item {
+  display: grid;
+  grid-template-columns: 9px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 8px;
+  margin: 0 -8px;
+  border-radius: var(--r-sm);
+  font-size: 12.5px;
+  cursor: default;
+  transition: background-color var(--t-fast) var(--ease-soft);
+}
+
+.donut__item--on {
+  background: var(--surface-sunk);
+}
+
+.donut__sw {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+}
+
+.donut__name {
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.donut__val {
+  font-weight: 600;
+}
+
+/* --- bar list -------------------------------------------------------- */
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bars__row {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+  border-radius: var(--r-sm);
+  transition: background-color var(--t-fast) var(--ease-soft);
+}
+
+.bars__row:hover {
+  background: var(--surface-sunk);
+}
+
+.bars__row--click {
+  cursor: pointer;
+  padding-inline: 8px;
+  margin-inline: -8px;
+}
+
+.bars__row--on {
+  background: var(--accent-wash);
+}
+
+.bars__row--on .bars__label {
+  color: var(--ink);
+  font-weight: 550;
+}
+
+.bars__label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  min-width: 0;
+}
+
+.bars__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  flex: none;
+}
+
+.bars__track {
+  position: relative;
+  height: 10px;
+  background: var(--plane-deep);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* 4px rounded data-end, square at the baseline. Shares the meter's timing token
+   so every bar-style reveal on the page moves at one speed. */
+.bars__fill {
+  display: block;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  transform-origin: left center;
+  animation: meter-in var(--t-slow) var(--ease-out) both;
+}
+
+.bars__value {
+  font-size: 12.5px;
+  font-weight: 550;
+  text-align: right;
+}
+
+
+/* --- confidence readout --------------------------------------------- */
+
+.conf {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.conf__num {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.conf__band {
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+.conf__meter {
+  width: 64px;
+  flex: none;
+}

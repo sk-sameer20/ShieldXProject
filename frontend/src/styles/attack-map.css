@@ -1,0 +1,388 @@
+/* -------------------------------------------------------------------------
+ * SHIELDX Global Attack Map Styles
+ * Clean, minimal, light/dark responsive, professional design
+ * ------------------------------------------------------------------------- */
+
+.attack-map-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.attack-map-card:hover {
+  border-color: var(--line-strong, var(--line));
+}
+
+/* Header */
+.attack-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px 14px;
+  flex-wrap: wrap;
+}
+
+.attack-map-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.attack-map-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.attack-map-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.attack-map-badge {
+  font-size: 10.5px;
+  font-family: var(--mono);
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: var(--r-full);
+  background: var(--surface-sunk);
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+}
+
+.attack-map-hint {
+  font-size: 12px;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+.attack-map-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Filters */
+.attack-map-filters {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+  padding: 2px;
+  gap: 2px;
+}
+
+.attack-map-filter-btn {
+  border: none;
+  background: transparent;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.2;
+}
+
+.attack-map-filter-btn:hover {
+  color: var(--ink);
+}
+
+.attack-map-filter-btn.active {
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Expand Button */
+.attack-map-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 4px 9px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.attack-map-expand-btn:hover {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line-strong, var(--line));
+}
+
+/* Map Canvas Wrap */
+.attack-map-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background: var(--surface-sunk);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.attack-map-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+  shape-rendering: geometricPrecision;
+}
+
+/* Continent Paths - GPU friendly */
+.map-continent {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 0.9;
+  opacity: 0.92;
+  transition: fill 0.15s ease;
+}
+
+.map-graticule {
+  stroke: var(--line);
+  stroke-width: 0.5;
+  pointer-events: none;
+}
+
+/* Trajectory Arc */
+.map-arc-base {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+  opacity: 0.4;
+}
+
+.map-arc-active {
+  fill: none;
+  stroke-width: 1.8;
+  opacity: 0.85;
+  stroke-linecap: round;
+  stroke-dasharray: 4 8;
+  animation: flowArcDash 2.4s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+@keyframes flowArcDash {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Nodes */
+.map-node-pulse {
+  animation: pulseNodeRing 2.4s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+@keyframes pulseNodeRing {
+  0% {
+    r: 3.5;
+    opacity: 0.85;
+  }
+  50% {
+    r: 7.5;
+    opacity: 0.3;
+  }
+  100% {
+    r: 12;
+    opacity: 0;
+  }
+}
+
+/* Hover overlay prompt */
+.attack-map-click-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 3px 8px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+:root[data-theme="dark"] .attack-map-click-overlay {
+  background: rgba(30, 41, 59, 0.85);
+}
+
+.attack-map-canvas-wrap:hover .attack-map-click-overlay {
+  transform: translateY(-1px);
+  color: var(--ink);
+}
+
+/* Footer / Legend */
+.attack-map-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+  font-size: 12px;
+  color: var(--ink-3);
+  flex-wrap: wrap;
+}
+
+.attack-map-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.attack-map-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+.attack-map-legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.attack-map-summary-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 11.5px;
+}
+
+/* Tooltip */
+.attack-map-tooltip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  margin-top: -10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--pop-shadow);
+  border-radius: var(--r-md);
+  padding: 8px 12px;
+  font-size: 11.5px;
+  color: var(--ink);
+  pointer-events: none;
+  z-index: 20;
+  min-width: 190px;
+  animation: mapTooltipIn 0.12s ease-out;
+}
+
+@keyframes mapTooltipIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -90%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+
+/* -------------------------------------------------------------------------
+ * EXPANDED STATE (Focused View)
+ * Covers the entire viewport cleanly with z-index above all shell topbars
+ * ------------------------------------------------------------------------- */
+
+.attack-map-card.is-expanded {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  border-radius: 0;
+  border: none;
+  animation: mapExpandQuick 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+  height: 100vh;
+  margin: 0;
+}
+
+@keyframes mapExpandQuick {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.attack-map-card.is-expanded .attack-map-header {
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.attack-map-card.is-expanded .attack-map-canvas-wrap {
+  flex: 1;
+  height: auto;
+  border: none;
+}
+
+.attack-map-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  background: var(--surface-sunk);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.attack-map-close-btn:hover {
+  background: var(--surface);
+  border-color: var(--line-strong, var(--line));
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .map-arc-active,
+  .map-node-pulse {
+    animation: none !important;
+  }
+  .attack-map-card.is-expanded {
+    animation: none !important;
+  }
+}

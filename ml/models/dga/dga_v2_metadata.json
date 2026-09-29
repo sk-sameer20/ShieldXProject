@@ -1,0 +1,15 @@
+{
+  "model_name": "DGA Domain Detector (v2 N-Gram Baseline)",
+  "model_type": "TF-IDF + Logistic Regression (supervised, character sequence)",
+  "model_version": "v2.0",
+  "feature_version": "2.0",
+  "features": "char_ngrams_2_5",
+  "num_tfidf_features": 71952,
+  "training_samples": 40060,
+  "validation_samples": 8530,
+  "test_samples": 8628,
+  "training_data": "tranco + baderj",
+  "split_method": "Strict family-level OOD split (reused from v1)",
+  "class_weight": "balanced",
+  "random_seed": 42
+}

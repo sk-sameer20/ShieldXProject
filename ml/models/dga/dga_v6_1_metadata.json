@@ -1,0 +1,14 @@
+{
+    "experiment": "v6.1",
+    "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "tensorflow_version": "2.22.0-rc0",
+    "keras_version": "3.16.0.dev2026092204",
+    "numpy_version": "2.5.1",
+    "random_seed": 42,
+    "max_length": 24,
+    "vocabulary_size": 40,
+    "parameter_count": 9601,
+    "training_time_seconds": 78.1179256439209,
+    "train_samples_original": 32048,
+    "train_samples_augmented": 61889
+}

@@ -1,0 +1,8 @@
+{"timestamp": 1727000000.0, "src_ip": "10.0.0.25", "dst_ip": "185.220.101.45", "src_port": 60001, "dst_port": 4444, "protocol": "tcp", "duration": 0.12, "orig_bytes": 128, "resp_bytes": 64, "orig_pkts": 3, "resp_pkts": 2}
+{"timestamp": 1727000030.1, "src_ip": "10.0.0.25", "dst_ip": "185.220.101.45", "src_port": 60002, "dst_port": 4444, "protocol": "tcp", "duration": 0.11, "orig_bytes": 132, "resp_bytes": 68, "orig_pkts": 3, "resp_pkts": 2}
+{"timestamp": 1727000060.0, "src_ip": "10.0.0.25", "dst_ip": "185.220.101.45", "src_port": 60003, "dst_port": 4444, "protocol": "tcp", "duration": 0.13, "orig_bytes": 130, "resp_bytes": 66, "orig_pkts": 3, "resp_pkts": 2}
+{"timestamp": 1727000090.2, "src_ip": "10.0.0.25", "dst_ip": "185.220.101.45", "src_port": 60004, "dst_port": 4444, "protocol": "tcp", "duration": 0.10, "orig_bytes": 128, "resp_bytes": 64, "orig_pkts": 3, "resp_pkts": 2}
+{"timestamp": 1727000120.1, "src_ip": "10.0.0.25", "dst_ip": "185.220.101.45", "src_port": 60005, "dst_port": 4444, "protocol": "tcp", "duration": 0.12, "orig_bytes": 126, "resp_bytes": 63, "orig_pkts": 3, "resp_pkts": 2}
+{"timestamp": 1727000150.0, "src_ip": "10.0.0.25", "dst_ip": "185.220.101.45", "src_port": 60006, "dst_port": 4444, "protocol": "tcp", "duration": 0.11, "orig_bytes": 128, "resp_bytes": 64, "orig_pkts": 3, "resp_pkts": 2}
+{"timestamp": 1727000180.3, "src_ip": "10.0.0.25", "dst_ip": "185.220.101.45", "src_port": 60007, "dst_port": 4444, "protocol": "tcp", "duration": 0.12, "orig_bytes": 130, "resp_bytes": 65, "orig_pkts": 3, "resp_pkts": 2}
+{"timestamp": 1727000210.1, "src_ip": "10.0.0.25", "dst_ip": "185.220.101.45", "src_port": 60008, "dst_port": 4444, "protocol": "tcp", "duration": 0.11, "orig_bytes": 128, "resp_bytes": 64, "orig_pkts": 3, "resp_pkts": 2}

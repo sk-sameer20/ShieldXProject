@@ -1,0 +1,8 @@
+{"timestamp": 1727000000.0, "src_ip": "10.0.0.40", "query": "aGVsbG8gd29ybGQ.tunnel.example.com", "qtype": "TXT", "rcode": "NOERROR", "answers": ["dGhpcyBpcyBkYXRh"], "query_length": 35}
+{"timestamp": 1727000000.5, "src_ip": "10.0.0.40", "query": "dGVzdCBkYXRhIGVuY29kZWQ.tunnel.example.com", "qtype": "TXT", "rcode": "NOERROR", "answers": ["cmVzcG9uc2UgZGF0YQ"], "query_length": 43}
+{"timestamp": 1727000001.0, "src_ip": "10.0.0.40", "query": "cGF5bG9hZCBjaHVuayAxMjM.tunnel.example.com", "qtype": "TXT", "rcode": "NOERROR", "answers": ["YWNr"], "query_length": 43}
+{"timestamp": 1727000001.5, "src_ip": "10.0.0.40", "query": "ZGF0YSBibG9jayBmb3VyIGhlcmU.tunnel.example.com", "qtype": "TXT", "rcode": "NOERROR", "answers": ["b2s"], "query_length": 48}
+{"timestamp": 1727000002.0, "src_ip": "10.0.0.40", "query": "bW9yZSBlbmNvZGVkIGNvbnRlbnQ.tunnel.example.com", "qtype": "TXT", "rcode": "NOERROR", "answers": ["YWNrMg"], "query_length": 48}
+{"timestamp": 1727000002.5, "src_ip": "10.0.0.40", "query": "ZXhjZXNzaXZlbHkgbG9uZyBxdWVyeQ.tunnel.example.com", "qtype": "TXT", "rcode": "NOERROR", "answers": ["cmVj"], "query_length": 51}
+{"timestamp": 1727000003.0, "src_ip": "10.0.0.40", "query": "dHVubmVsaW5nIGRhdGEgY2h1bms.tunnel.example.com", "qtype": "TXT", "rcode": "NOERROR", "answers": ["YWNr"], "query_length": 47}
+{"timestamp": 1727000003.5, "src_ip": "10.0.0.40", "query": "ZmluYWwgY2h1bmsgb2YgZGF0YQ.tunnel.example.com", "qtype": "TXT", "rcode": "NOERROR", "answers": ["ZG9uZQ"], "query_length": 46}
